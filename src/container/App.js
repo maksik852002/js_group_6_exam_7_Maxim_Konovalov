@@ -63,6 +63,10 @@ class App extends Component {
 
   render = () => {
     let id = [];
+    let text = <p>Order is empty!<span className='d-block'>Please add someitems!</span></p>
+    if (this.state.totalPrice > 0) {
+      text = <p>Total price: {this.state.totalPrice}</p>
+    }
     return (
       <div className="container">
         <div className="row mt-3 text-center">
@@ -84,7 +88,7 @@ class App extends Component {
                   )
                 })
               }
-              <p>Total price: {this.state.totalPrice}</p>
+              {text}
             </div>
           </div>
           <div className="col-12 col-md-6 mb-3">
