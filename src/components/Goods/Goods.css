@@ -1,0 +1,11 @@
+.imgs{
+  font-size: 60px;
+}
+
+.click {
+ cursor: pointer;
+}
+
+.click:hover {
+  background-color:#dee2e6;
+}
