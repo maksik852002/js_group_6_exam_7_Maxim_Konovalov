@@ -33,6 +33,34 @@ class App extends Component {
     totalPrice: 0,
   };
 
+  addGood = (id) => {
+    const index = this.state.goods.findIndex(p=> p.id === id);
+    const goods = [...this.state.goods]
+    let totalPrice = this.state.totalPrice;
+    let total = 0;
+    goods[index].count++;
+    goods[index].total = goods[index].count * goods[index].price    
+    this.state.goods.forEach(element => {
+      total += element.total
+     })
+     totalPrice=total
+    this.setState({goods, totalPrice})
+  }
+
+  removeGood = (id) => {
+    const index = this.state.goods.findIndex(p=> p.id === id);
+    const goods = [...this.state.goods]
+    let totalPrice = this.state.totalPrice;
+    let total = 0;
+    goods[index].count--;
+    goods[index].total = goods[index].count * goods[index].price    
+    this.state.goods.forEach(element => {
+      total += element.total
+     })
+     totalPrice=total
+    this.setState({goods, totalPrice})
+  }
+
   render = () => {
     let id = [];
     return (
